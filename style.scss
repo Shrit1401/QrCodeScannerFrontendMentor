@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+$White: hsl(0, 0%, 100%);
+$Light_gray: hsl(212, 45%, 89%);
+$Grayish_blue: hsl(220, 15%, 55%);
+$Dark_blue: hsl(218, 44%, 22%);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+}
+
+@mixin mobile {
+    @media (max-width: 377px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (max-width: 1440px) {
+        @content;
+    }
+}
+
+body {
+    background-color: $Light_gray;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    border-radius: 8px;
+    width: 25%;
+    height: 80%;
+    background-color: $White;
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include mobile() {
+        width: 70%;
+        height: 80%;
+        padding-top: 5px;
+    }
+
+    img {
+        border-radius: 4px;
+        width: 90%;
+
+        @include mobile() {
+            width: 75%;
+        }
+
+        margin-bottom: 20px;
+    }
+
+    .text {
+        width: 90%;
+        text-align: center;
+
+        h3 {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: $Dark_blue;
+        }
+
+        p {
+            font-size: 15px;
+        }
+
+        color: $Grayish_blue;
+    }
+}
